@@ -9,6 +9,8 @@
         if next_selects.first()[0] and $this.val() # init next child
           $.get "/china_city/#{$(@).val()}", (data) ->
             next_selects.first()[0].options.add(new Option(option[0], option[1])) for option in data
+            $(next_selects.first()[0]).trigger('china_city.options_added')
+
 
   $ ->
     $('.city-group').china_city()
